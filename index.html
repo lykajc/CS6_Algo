@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IBFO-ODLAD — Algorithm Comparison</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/simulation.css" />
+
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ════════════════════════════ NAVIGATION ════════════════════════════ -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">IBFO<span>-ODLAD</span></div>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#simulation">Simulation</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#analysis">Analysis</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ════════════════════════════ HERO ════════════════════════════ -->
+    <header class="hero" id="top">
+        <div class="container">
+            <div class="hero-eyebrow">
+                <span class="tag">CS6L Algorithms &amp; Complexity</span>
+                <span class="dot"></span>
+                <span class="tag">University of Mindanao</span>
+            </div>
+
+            <h1>Improved Bacterial Foraging <em>Optimization</em><br>with Deep Learning-Based Anomaly Detection</h1>
+
+            <p class="hero-sub">
+                A simulation-driven comparison of the baseline BFO and the enhanced IBFO algorithm
+                for IoT anomaly detection in smart city environments.
+            </p>
+
+            <div class="hero-meta">
+                <div class="hero-stat">
+                    <span class="val">98.89%</span>
+                    <span class="lbl">IBFO Accuracy — Dataset 1</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="val">98.66%</span>
+                    <span class="lbl">IBFO Accuracy — Dataset 2</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="val">19/42</span>
+                    <span class="lbl">Features Selected (UNSW NB-15)</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="val">231/591</span>
+                    <span class="lbl">Features Selected (UCI SECOM)</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ════════════════════════════ PIPELINE ════════════════════════════ -->
+    <section class="section section-alt">
+        <div class="container text-center">
+            <p class="section-label">Proposed System</p>
+            <h2 class="section-title">IBFO-ODLAD Pipeline</h2>
+            <p class="section-desc">
+                The IBFO-ODLAD system integrates four sequential stages for automated anomaly
+                detection in IoT networks (Khayyat, 2023).
+            </p>
+
+            <div class="pipeline">
+                <div class="pipeline-step">
+                    <div class="step-num">1</div>
+                    <h4>Z-Score Normalization</h4>
+                    <p>Standardizes input features to mean 0, SD 1</p>
+                </div>
+                <div class="pipeline-step">
+                    <div class="step-num">2</div>
+                    <h4>IBFO Feature Selection</h4>
+                    <p>Selects optimal feature subset via SA-enhanced BFO</p>
+                </div>
+                <div class="pipeline-step">
+                    <div class="step-num">3</div>
+                    <h4>MLSTM Classification</h4>
+                    <p>Multiplicative LSTM classifies normal vs. anomalous traffic</p>
+                </div>
+                <div class="pipeline-step">
+                    <div class="step-num">4</div>
+                    <h4>BOA Hyperparameter Tuning</h4>
+                    <p>Bayesian optimization selects optimal MLSTM hyperparameters</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════ ALGORITHM OVERVIEW ════════════════════════════ -->
+    <section class="section" id="overview">
+        <div class="container">
+            <p class="section-label">Algorithm Comparison</p>
+            <h2 class="section-title">Baseline vs. Enhanced Algorithm</h2>
+            <p class="section-desc">
+                The IBFO improves upon the standard BFO by integrating Simulated Annealing,
+                enabling probabilistic escape from local optima during feature subset selection
+                (Khayyat, 2023).
+            </p>
+
+            <div class="algo-grid">
+
+                <!-- Baseline BFO Card -->
+                <div class="algo-card">
+                    <div class="card-header">
+                        <span class="card-badge badge-baseline">Baseline</span>
+                        <div class="card-icon icon-baseline">🦠</div>
+                    </div>
+                    <h3>Standard BFO</h3>
+                    <p class="subtitle">Bacterial Foraging Optimization</p>
+                    <ul class="feature-list">
+                        <li>Chemotaxis: swim and tumble via flagella motion</li>
+                        <li>Swarming: cell-to-cell attraction and repulsion</li>
+                        <li>Reproduction: poorest half eliminated, best half cloned</li>
+                        <li>Elimination-dispersal: random reinitializations with probability P<sub>ed</sub></li>
+                        <li>Greedy acceptance — only improves, never explores worse states</li>
+                        <li>Prone to local optima trapping on complex fitness landscapes</li>
+                    </ul>
+                    <div class="complexity-box">
+                        <h4>Complexity</h4>
+                        <div class="complexity-row">
+                            <span>Time</span><span>O(N<sub>ed</sub>·N<sub>re</sub>·N<sub>c</sub>·M·D)</span></div>
+                        <div class="complexity-row"><span>Space</span><span>O(M·D)</span></div>
+                        <div class="complexity-row"><span>Convergence</span><span>Suboptimal (local minima)</span></div>
+                    </div>
+                </div>
+
+                <!-- Enhanced IBFO Card -->
+                <div class="algo-card enhanced">
+                    <div class="card-header">
+                        <span class="card-badge badge-enhanced">Enhanced</span>
+                        <div class="card-icon icon-enhanced">⚡</div>
+                    </div>
+                    <h3>Improved BFO (IBFO)</h3>
+                    <p class="subtitle">BFO + Simulated Annealing</p>
+                    <ul class="feature-list">
+                        <li>All BFO operators retained (chemotaxis, swarming, reproduction)</li>
+                        <li>SA Metropolis condition added within chemotaxis step</li>
+                        <li>Worse solutions accepted with probability exp(−ΔE/T)</li>
+                        <li>Temperature T decreases geometrically: T ← T·α at each step</li>
+                        <li>Probabilistic escape from local optima — key enhancement</li>
+                        <li>Better convergence to global optimum on high-dimensional data</li>
+                    </ul>
+                    <div class="complexity-box">
+                        <h4>Complexity</h4>
+                        <div class="complexity-row">
+                            <span>Time</span><span>O(N<sub>ed</sub>·N<sub>re</sub>·N<sub>c</sub>·M·D)</span></div>
+                        <div class="complexity-row"><span>Space</span><span>O(M·D) + O(1) for SA</span></div>
+                        <div class="complexity-row"><span>Convergence</span><span>Near-global optimum</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════ SIMULATION ════════════════════════════ -->
+    <section class="section section-alt" id="simulation">
+        <div class="container">
+            <p class="section-label">Interactive Experiment</p>
+            <h2 class="section-title">Algorithm Simulation</h2>
+            <p class="section-desc">
+                Configure parameters and run both algorithms on a synthetic feature selection
+                problem modeled after the fitness function in Khayyat (2023), Eq. (5).
+            </p>
+
+            <div class="sim-panel">
+
+                <!-- Parameter controls -->
+                <div class="sim-controls">
+                    <h3>Simulation Parameters</h3>
+                    <div class="controls-grid">
+                        <div class="control-group">
+                            <label>Features (dim)</label>
+                            <input id="param-dim" type="number" value="20" min="10" max="60" />
+                        </div>
+                        <div class="control-group">
+                            <label>Population (M)</label>
+                            <input id="param-M" type="number" value="20" min="5" max="50" />
+                        </div>
+                        <div class="control-group">
+                            <label>Chemotaxis (Nc)</label>
+                            <input id="param-Nc" type="number" value="40" min="10" max="100" />
+                        </div>
+                        <div class="control-group">
+                            <label>Reproduction (Nre)</label>
+                            <input id="param-Nre" type="number" value="4" min="1" max="10" />
+                        </div>
+                        <div class="control-group">
+                            <label>Elimination (Ned)</label>
+                            <input id="param-Ned" type="number" value="2" min="1" max="5" />
+                        </div>
+                        <div class="control-group">
+                            <label>Step Size (C)</label>
+                            <input id="param-C" type="number" value="0.1" min="0.01" max="0.5" step="0.01" />
+                        </div>
+                        <div class="control-group sa-group">
+                            <label>Init Temp (T₀)</label>
+                            <input id="param-T0" type="number" value="1.0" min="0.1" max="5.0" step="0.1" />
+                        </div>
+                        <div class="control-group sa-group">
+                            <label>Cooling Rate (α)</label>
+                            <input id="param-cool" type="number" value="0.96" min="0.8" max="0.999" step="0.01" />
+                        </div>
+                    </div>
+                    <div class="sim-actions">
+                        <button class="btn btn-primary" id="run-btn">▶ Run Simulation</button>
+                        <button class="btn btn-outline" id="reset-btn"
+                            style="color:#fff;border-color:rgba(255,255,255,0.3);">Reset</button>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="sim-charts">
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <h4>Convergence — Best Fitness per Iteration</h4>
+                            <canvas id="convergenceChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h4>Performance Metrics Comparison</h4>
+                            <canvas id="metricsChart"></canvas>
+                        </div>
+                    </div>
+                    <p class="sim-hint">Run the simulation to view convergence and performance results.</p>
+                </div>
+
+                <!-- Results table (hidden until run) -->
+                <div id="sim-results">
+                    <h3>Simulation Results</h3>
+                    <table class="sim-table">
+                        <thead>
+                            <tr>
+                                <th>Algorithm</th>
+                                <th>Accuracy</th>
+                                <th>Precision</th>
+                                <th>Recall</th>
+                                <th>F-Score</th>
+                                <th>Features Selected</th>
+                                <th>Execution Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bfo-row">
+                                <td>BFO (Baseline)</td>
+                                <td id="bfo-accuracy">—</td>
+                                <td id="bfo-precision">—</td>
+                                <td id="bfo-recall">—</td>
+                                <td id="bfo-fscore">—</td>
+                                <td id="bfo-features">—</td>
+                                <td id="bfo-time">—</td>
+                            </tr>
+                            <tr class="ibfo-row">
+                                <td>IBFO (Enhanced)</td>
+                                <td id="ibfo-accuracy">—</td>
+                                <td id="ibfo-precision">—</td>
+                                <td id="ibfo-recall">—</td>
+                                <td id="ibfo-fscore">—</td>
+                                <td id="ibfo-features">—</td>
+                                <td id="ibfo-time">—</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="gap-notice">
+                        <span id="accuracy-gap">Run the simulation to see the accuracy gap.</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════ PAPER RESULTS ════════════════════════════ -->
+    <section class="section" id="results">
+        <div class="container">
+            <p class="section-label">Experimental Results</p>
+            <h2 class="section-title">Published Performance — IBFO-ODLAD</h2>
+            <p class="section-desc">
+                Results reported by Khayyat (2023) for the IBFO-ODLAD method validated on
+                the UNSW NB-15 dataset (Dataset 1) and UCI SECOM dataset (Dataset 2).
+            </p>
+
+            <div class="data-grid">
+
+                <!-- Dataset 1 Testing Results -->
+                <div>
+                    <h3 style="margin-bottom:1rem;font-size:1rem;">Dataset 1: UNSW NB-15 — Testing Phase (30%)</h3>
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Accuracy</th>
+                                <th>Precision</th>
+                                <th>Recall</th>
+                                <th>F-Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Normal</td>
+                                <td>98.33</td>
+                                <td>96.88</td>
+                                <td>86.11</td>
+                                <td>91.18</td>
+                            </tr>
+                            <tr>
+                                <td>Generic</td>
+                                <td>99.44</td>
+                                <td>95.35</td>
+                                <td>100.00</td>
+                                <td>97.62</td>
+                            </tr>
+                            <tr>
+                                <td>Exploits</td>
+                                <td>98.89</td>
+                                <td>93.55</td>
+                                <td>93.55</td>
+                                <td>93.55</td>
+                            </tr>
+                            <tr>
+                                <td>Fuzzers</td>
+                                <td>98.61</td>
+                                <td>90.62</td>
+                                <td>93.55</td>
+                                <td>92.06</td>
+                            </tr>
+                            <tr>
+                                <td>DoS</td>
+                                <td>98.61</td>
+                                <td>95.24</td>
+                                <td>93.02</td>
+                                <td>94.12</td>
+                            </tr>
+                            <tr>
+                                <td>Reconnaissance</td>
+                                <td>98.06</td>
+                                <td>83.78</td>
+                                <td>96.88</td>
+                                <td>89.86</td>
+                            </tr>
+                            <tr>
+                                <td>Analysis</td>
+                                <td>98.89</td>
+                                <td>97.06</td>
+                                <td>91.67</td>
+                                <td>94.29</td>
+                            </tr>
+                            <tr>
+                                <td>Backdoor</td>
+                                <td>98.89</td>
+                                <td>90.91</td>
+                                <td>96.77</td>
+                                <td>93.75</td>
+                            </tr>
+                            <tr>
+                                <td>Shellcode</td>
+                                <td>99.17</td>
+                                <td>100.00</td>
+                                <td>93.02</td>
+                                <td>96.39</td>
+                            </tr>
+                            <tr>
+                                <td>Worms</td>
+                                <td>100.00</td>
+                                <td>100.00</td>
+                                <td>100.00</td>
+                                <td>100.00</td>
+                            </tr>
+                            <tr class="avg-row">
+                                <td><strong>Average</strong></td>
+                                <td class="col-accent"><strong>98.89</strong></td>
+                                <td><strong>94.34</strong></td>
+                                <td><strong>94.46</strong></td>
+                                <td><strong>94.28</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Dataset 2 Results + Comparative Tables -->
+                <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+                    <!-- Dataset 2 -->
+                    <div>
+                        <h3 style="margin-bottom:1rem;font-size:1rem;">Dataset 2: UCI SECOM — Testing Phase (30%)</h3>
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Accuracy</th>
+                                    <th>Precision</th>
+                                    <th>Recall</th>
+                                    <th>F-Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Class-1</td>
+                                    <td>99.09</td>
+                                    <td>97.23</td>
+                                    <td>99.51</td>
+                                    <td>98.76</td>
+                                </tr>
+                                <tr>
+                                    <td>Class-2</td>
+                                    <td>96.67</td>
+                                    <td>90.00</td>
+                                    <td>90.81</td>
+                                    <td>90.70</td>
+                                </tr>
+                                <tr class="avg-row">
+                                    <td><strong>Average</strong></td>
+                                    <td class="col-accent"><strong>98.66</strong></td>
+                                    <td><strong>93.62</strong></td>
+                                    <td><strong>95.16</strong></td>
+                                    <td><strong>94.73</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Comparative — Dataset 1 -->
+                    <div>
+                        <h3 style="margin-bottom:1rem;font-size:1rem;">Comparative Analysis — Dataset 1</h3>
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>Precision</th>
+                                    <th>Recall</th>
+                                    <th>Accuracy</th>
+                                    <th>F-Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ANN</td>
+                                    <td>58.36</td>
+                                    <td>58.95</td>
+                                    <td>78.85</td>
+                                    <td>55.10</td>
+                                </tr>
+                                <tr>
+                                    <td>SVM</td>
+                                    <td>50.94</td>
+                                    <td>53.18</td>
+                                    <td>64.45</td>
+                                    <td>53.11</td>
+                                </tr>
+                                <tr>
+                                    <td>SSAE</td>
+                                    <td>59.29</td>
+                                    <td>59.22</td>
+                                    <td>88.97</td>
+                                    <td>51.69</td>
+                                </tr>
+                                <tr>
+                                    <td>VLSTM</td>
+                                    <td>67.12</td>
+                                    <td>52.56</td>
+                                    <td>95.73</td>
+                                    <td>59.43</td>
+                                </tr>
+                                <tr>
+                                    <td>SSA-CRNN</td>
+                                    <td>66.70</td>
+                                    <td>58.46</td>
+                                    <td>98.25</td>
+                                    <td>60.18</td>
+                                </tr>
+                                <tr class="avg-row">
+                                    <td><strong>IBFO-ODLAD</strong></td>
+                                    <td class="col-accent"><strong>94.34</strong></td>
+                                    <td class="col-accent"><strong>94.46</strong></td>
+                                    <td class="col-accent"><strong>98.89</strong></td>
+                                    <td class="col-accent"><strong>94.28</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════ COMPARATIVE ANALYSIS ════════════════════════════ -->
+    <section class="section section-alt" id="analysis">
+        <div class="container">
+            <p class="section-label">Comparative Analysis</p>
+            <h2 class="section-title">BFO vs. IBFO — Key Findings</h2>
+            <p class="section-desc">
+                The IBFO consistently outperforms the standard BFO across all evaluated metrics,
+                primarily due to the Simulated Annealing enhancement.
+            </p>
+
+            <div class="data-grid" style="margin-bottom:2rem;">
+                <div class="card">
+                    <h3>Convergence Behavior</h3>
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Criterion</th>
+                                <th>BFO</th>
+                                <th>IBFO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Acceptance Strategy</td>
+                                <td>Greedy (improve only)</td>
+                                <td class="winner">Metropolis (SA-based)</td>
+                            </tr>
+                            <tr>
+                                <td>Local Optima</td>
+                                <td>Prone to trapping</td>
+                                <td class="winner">Escapes via SA jumps</td>
+                            </tr>
+                            <tr>
+                                <td>Exploration vs. Exploitation</td>
+                                <td>Exploitation-heavy</td>
+                                <td class="winner">Balanced (temperature-controlled)</td>
+                            </tr>
+                            <tr>
+                                <td>Solution Quality</td>
+                                <td>Suboptimal plateau</td>
+                                <td class="winner">Near-global optimum</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h3>Feature Selection Performance</h3>
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Dataset</th>
+                                <th>BFO (est.)</th>
+                                <th>IBFO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>UNSW NB-15 Accuracy</td>
+                                <td>~95.73%</td>
+                                <td class="winner">98.89%</td>
+                            </tr>
+                            <tr>
+                                <td>UCI SECOM Accuracy</td>
+                                <td>~93.37%</td>
+                                <td class="winner">98.66%</td>
+                            </tr>
+                            <tr>
+                                <td>Features (UNSW NB-15)</td>
+                                <td>~25–30</td>
+                                <td class="winner">19 of 42</td>
+                            </tr>
+                            <tr>
+                                <td>Features (UCI SECOM)</td>
+                                <td>~300+</td>
+                                <td class="winner">231 of 591</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Key Takeaway</h3>
+                <p>
+                    The Simulated Annealing enhancement in IBFO reduces classification error and selects
+                    fewer, more informative features than standard BFO. On the UNSW NB-15 dataset,
+                    IBFO-ODLAD achieves 98.89% accuracy — outperforming all compared baselines including
+                    SSA-CRNN (98.25%) and VLSTM (95.73%) — while selecting only 19 of 42 available features
+                    (Khayyat, 2023).
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ════════════════════════════ FOOTER ════════════════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div>
+                    <div class="footer-brand">IBFO<span>-ODLAD</span></div>
+                    <p style="margin-top:0.4rem;font-size:0.8rem;color:rgba(255,255,255,0.4);">
+                        CS6L Algorithms &amp; Complexity · University of Mindanao
+                    </p>
+                    <p style="margin-top:0.2rem;font-size:0.78rem;color:rgba(255,255,255,0.35);">
+                        Lyka Jane L. Cabillan &nbsp;|&nbsp; Samantha Lewis A. Virtudazo
+                    </p>
+                </div>
+                <p class="footer-ref">
+                    Khayyat, M. M. (2023). Improved bacterial foraging optimization with deep
+                    learning based anomaly detection in smart cities. <em>Alexandria Engineering Journal,
+                        75</em>, 407–417. https://doi.org/10.1016/j.aej.2023.05.082
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Algorithm scripts -->
+    <script src="js/fitness.js"></script>
+    <script src="js/bfo.js"></script>
+    <script src="js/ibfo.js"></script>
+    <script src="js/simulation.js"></script>
+
+</body>
+
+</html>

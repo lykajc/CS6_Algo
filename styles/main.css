@@ -1,0 +1,159 @@
+/* Global variables, reset, and base typography */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* Design tokens */
+:root {
+    --primary: #355872;
+    --secondary: #7AAACE;
+    --accent: #9CD5FF;
+    --bg: #F7F8F0;
+    --white: #ffffff;
+    --text-dark: #1c3245;
+    --text-mid: #355872;
+    --text-light: #6b8fa8;
+    --border: #d4e4f0;
+    --card-bg: #ffffff;
+    --shadow-sm: 0 2px 8px rgba(53, 88, 114, 0.08);
+    --shadow-md: 0 6px 24px rgba(53, 88, 114, 0.12);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --transition: 0.25s ease;
+}
+
+/* Box model reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--bg);
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* Headings use Outfit */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text-dark);
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h4 {
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+p {
+    color: var(--text-mid);
+    font-size: 0.96rem;
+}
+
+a {
+    color: var(--secondary);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover {
+    color: var(--primary);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Utility classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    padding: 6rem 0;
+}
+
+.section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+}
+
+.section-title {
+    margin-bottom: 0.75rem;
+}
+
+.section-desc {
+    font-size: 1rem;
+    max-width: 600px;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-center .section-desc {
+    margin-inline: auto;
+}
+
+/* Tag pill */
+.tag {
+    display: inline-block;
+    padding: 0.2rem 0.75rem;
+    background-color: rgba(156, 213, 255, 0.2);
+    color: var(--primary);
+    border: 1px solid rgba(156, 213, 255, 0.5);
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Divider */
+.divider {
+    width: 48px;
+    height: 3px;
+    background-color: var(--accent);
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.divider.center {
+    margin-inline: auto;
+}
