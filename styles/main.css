@@ -1,159 +1,312 @@
-/* Global variables, reset, and base typography */
+/* Global variables, reset, base typography — Simplified Top Nav & Tab-Based Layout */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap");
 
-/* Design tokens */
+/* ── Design tokens ── */
 :root {
-    --primary: #355872;
-    --secondary: #7AAACE;
-    --accent: #9CD5FF;
-    --bg: #F7F8F0;
-    --white: #ffffff;
-    --text-dark: #1c3245;
-    --text-mid: #355872;
-    --text-light: #6b8fa8;
-    --border: #d4e4f0;
-    --card-bg: #ffffff;
-    --shadow-sm: 0 2px 8px rgba(53, 88, 114, 0.08);
-    --shadow-md: 0 6px 24px rgba(53, 88, 114, 0.12);
-    --radius: 12px;
-    --radius-sm: 8px;
-    --transition: 0.25s ease;
+  --primary: #355872;
+  --primary-dark: #1c3245;
+  --secondary: #7aaace;
+  --accent: #9cd5ff;
+  --bg: #f0f2ec;
+  --white: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-mid: #444444;
+  --text-light: #6b8fa8;
+  --text-muted: #999999;
+  --border: #e4e4e4;
+  --border-light: #f0f0f0;
+  --card-bg: #ffffff;
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.1);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
+  --transition: 0.2s ease;
+  --nav-h: 56px;
 }
 
-/* Box model reset */
+/* ── Reset ── */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'DM Sans', sans-serif;
-    background-color: var(--bg);
-    color: var(--text-dark);
-    line-height: 1.7;
-    font-size: 15px;
+  font-family: "DM Sans", sans-serif;
+  background-color: var(--bg);
+  color: var(--text-dark);
+  line-height: 1.6;
+  font-size: 14px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Headings use Outfit */
+/* ── Top Navigation ── */
+.top-nav {
+  height: var(--nav-h);
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-radius: 100px;
+  transition: all var(--transition);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: var(--text-dark);
+  background-color: var(--border-light);
+}
+
+.nav-link.active {
+  color: var(--primary);
+  background-color: rgba(53, 88, 114, 0.08);
+  font-weight: 600;
+}
+
+/* ── Page Body ── */
+.page-body {
+  margin-top: var(--nav-h);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-main {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  flex: 1;
+}
+
+/* ── Hero Section ── */
+.hero-section {
+  position: relative;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(28, 50, 69, 0.7) 0%,
+      rgba(53, 88, 114, 0.7) 100%
+    ),
+    url("images/hero-bg.jpg") center/cover no-repeat;
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+  color: var(--white);
+  overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(28, 50, 69, 0.75) 0%,
+    rgba(53, 88, 114, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.hero-description {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Tab Content ── */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* ── Typography ── */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    line-height: 1.25;
-    color: var(--text-dark);
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-dark);
 }
 
 h1 {
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
-
 h2 {
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-size: 1.25rem;
 }
-
 h3 {
-    font-size: 1.25rem;
+  font-size: 1.1rem;
 }
-
 h4 {
-    font-size: 1.05rem;
-    font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 p {
-    color: var(--text-mid);
-    font-size: 0.96rem;
+  color: var(--text-mid);
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 
-a {
-    color: var(--secondary);
-    text-decoration: none;
-    transition: color var(--transition);
+.eyebrow {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+  font-family: "DM Sans", sans-serif;
 }
 
-a:hover {
-    color: var(--primary);
+/* ── Components ── */
+.highlight-box {
+  background-color: var(--primary-dark);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  color: var(--white);
+  margin-top: 1.5rem;
 }
 
-ul {
-    list-style: none;
+.highlight-box .eyebrow {
+  color: var(--accent);
 }
 
-/* Utility classes */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
+.highlight-box h3 {
+  color: var(--white);
+  margin-bottom: 0.5rem;
 }
 
-.section {
-    padding: 6rem 0;
+.highlight-box p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
 }
 
-.section-label {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--secondary);
-    margin-bottom: 0.75rem;
+/* ── Tables ── */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
 }
 
-.section-title {
-    margin-bottom: 0.75rem;
+.compare-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.section-desc {
-    font-size: 1rem;
-    max-width: 600px;
-    color: var(--text-light);
-    margin-bottom: 3rem;
+.compare-table td {
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--border-light);
 }
 
-.text-center {
-    text-align: center;
+.compare-table tr:last-child td {
+  border-bottom: none;
 }
 
-.text-center .section-desc {
-    margin-inline: auto;
+.compare-table .winner {
+  font-weight: 600;
+  color: var(--primary);
+  background-color: rgba(53, 88, 114, 0.03);
 }
 
-/* Tag pill */
-.tag {
-    display: inline-block;
-    padding: 0.2rem 0.75rem;
-    background-color: rgba(156, 213, 255, 0.2);
-    color: var(--primary);
-    border: 1px solid rgba(156, 213, 255, 0.5);
-    border-radius: 100px;
-    font-size: 0.78rem;
-    font-weight: 500;
-    font-family: 'DM Sans', sans-serif;
-}
-
-/* Divider */
-.divider {
-    width: 48px;
-    height: 3px;
-    background-color: var(--accent);
-    border-radius: 2px;
-    margin-bottom: 1.5rem;
-}
-
-.divider.center {
-    margin-inline: auto;
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .page-main {
+    padding: 1rem;
+  }
+  .nav-link {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  .hero-section {
+    padding: 2rem 1.5rem;
+    min-height: 240px;
+  }
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+  .hero-description {
+    font-size: 0.85rem;
+  }
 }
